@@ -1,0 +1,800 @@
+{
+  "id": 247,
+  "status": 1,
+  "name": {
+    "en_GB": " Meridia 200 Planter",
+    "en_US": " Meridia 200 Planter",
+    "es_AR": "Sembradora Meridia 200",
+    "es_ES": "Sembradora Meridia 200",
+    "pt_BR": "Plantadeira Meridia 200"
+  },
+  "description": {
+    "en_GB": "<p>Robustness and Quality for your Planting.<\/p>",
+    "en_US": "<p>Robustness and Quality for your Planting.<\/p>",
+    "es_AR": "<p>Robustez y Calidad para su Cultivo.<\/p>",
+    "es_ES": "<p>Robustez y Calidad para su Cultivo.<\/p>",
+    "pt_BR": "<p>Robustez e Qualidade para o seu Plantio.<br><\/p>"
+  },
+  "image": {
+    "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_image_1602702368092_meridia.jpg",
+    "name": "product_image_1602702368092_meridia.jpg",
+    "size": 137557,
+    "type": "image\/jpeg"
+  },
+  "header_image": {
+    "landscape": {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_header_image_landscape_1644788788116_Meridia_200_51.jpg",
+      "name": "product_header_image_landscape_1644788788116_Meridia_200_51.jpg",
+      "size": 3949663,
+      "type": "image\/jpeg"
+    }
+  },
+  "gallery": [
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_0_1595955476915_Meridia_200_1.jpg",
+      "name": "product_gallery_0_1595955476915_Meridia_200_1.jpg",
+      "size": 1012791,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_1_1595955476915_Meridia_200_5.jpg",
+      "name": "product_gallery_1_1595955476915_Meridia_200_5.jpg",
+      "size": 1258691,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_2_1644787924151_Meridia_200_11.jpg",
+      "name": "product_gallery_2_1644787924151_Meridia_200_11.jpg",
+      "size": 12503335,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_3_1595955476915_Meridia_200_34.jpg",
+      "name": "product_gallery_3_1595955476915_Meridia_200_34.jpg",
+      "size": 2427477,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_4_1644787924151_Meridia_200_36.jpg",
+      "name": "product_gallery_4_1644787924151_Meridia_200_36.jpg",
+      "size": 5966101,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_5_1644787924151_Meridia_200_43.jpg",
+      "name": "product_gallery_5_1644787924151_Meridia_200_43.jpg",
+      "size": 2656374,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_6_1644787924151_Meridia_200_46.jpg",
+      "name": "product_gallery_6_1644787924151_Meridia_200_46.jpg",
+      "size": 2745703,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_7_1644787924151_Meridia_200_21.jpg",
+      "name": "product_gallery_7_1644787924151_Meridia_200_21.jpg",
+      "size": 11012691,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_8_1644787924151_Meridia_200_41.jpg",
+      "name": "product_gallery_8_1644787924151_Meridia_200_41.jpg",
+      "size": 5867424,
+      "type": "image\/jpeg",
+      "hotspots": []
+    },
+    {
+      "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_gallery_9_1644787924151_Meridia_200_51.jpg",
+      "name": "product_gallery_9_1644787924151_Meridia_200_51.jpg",
+      "size": 3949663,
+      "type": "image\/jpeg",
+      "hotspots": []
+    }
+  ],
+  "videos": [
+    {
+      "en_GB": "https:\/\/www.youtube.com\/watch?v=8aufXScY-Q0",
+      "en_US": "https:\/\/www.youtube.com\/watch?v=8aufXScY-Q0",
+      "es_AR": "https:\/\/www.youtube.com\/watch?v=Qdlspf1K5b8",
+      "es_ES": "https:\/\/www.youtube.com\/watch?v=Qdlspf1K5b8",
+      "pt_BR": "https:\/\/www.youtube.com\/watch?v=tmnYEyAVMwQ"
+    }
+  ],
+  "tour": [],
+  "features": [
+    {
+      "image": {
+        "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_features_0_image_1644787110091_Meridia_200_8.jpg",
+        "name": "product_features_0_image_1644787110091_Meridia_200_8.jpg",
+        "size": 6497066,
+        "type": "image\/jpeg"
+      },
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "image": {
+        "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_features_1_image_1644788788116_meridia.png",
+        "name": "product_features_1_image_1644788788116_meridia.png",
+        "size": 1313532,
+        "type": "image\/png"
+      },
+      "title": {
+        "en_GB": "Plantability",
+        "en_US": "Plantability",
+        "es_AR": "Plantabilidad",
+        "es_ES": "Plantabilidad",
+        "pt_BR": "Plantabilidade"
+      },
+      "description": {
+        "en_GB": "<p class=\"ql-align-justify\"><strong style=\"color: rgb(236, 102, 8);\">Planting accuracy<\/strong><\/p><p>The technology of the pneumatic system (vacuum) in conjunction with the Precision Planting vSet2TM seed doser, allows an excellent singulation and CV (coefficient of variation), resulting in planting in the correct quantity and in the correct spacing with positive impacts on productivity.<\/p><p class=\"ql-align-justify\"><br><\/p><p class=\"ql-align-justify\"><strong style=\"color: rgb(236, 102, 8);\">Uniform depth<\/strong><\/p><p>With the new Jacto down force system, composed of a set of gas springs, allowing a constant force at any height of the planting line. This allows a better uniformity in the depth of the seeds in the soil, independent of the reliefs and vibrations, allowing a more uniform germination. The system also allows a quick and agile setting of the desired force, reducing the adjustment time.<\/p><p><br><\/p><p><strong style=\"color: rgb(236, 102, 8);\">Adaptation to soil and relief conditions<\/strong><\/p><p>With 3 parts articulated to each other and a range of 25 degrees, in addition to the course of the pantographic system of the planting line, they allow the Meridia 200 to have excellent performance in wavy reliefs and improving the quality of planting.<\/p><p><br><\/p>",
+        "en_US": "<p><strong style=\"color: rgb(236, 102, 8);\">Planting accuracy<\/strong><\/p><p>The technology of the pneumatic system (vacuum) in conjunction with the Precision Planting vSet2TM seed doser, allows an excellent singulation and CV (coefficient of variation), resulting in planting in the correct quantity and in the correct spacing with positive impacts on productivity.<\/p><p class=\"ql-align-justify\"><br><\/p><p><strong style=\"color: rgb(236, 102, 8);\">Uniform depth<\/strong><\/p><p>With the new Jacto down force system, composed of a set of gas springs, allowing a constant force at any height of the planting line. This allows a better uniformity in the depth of the seeds in the soil, independent of the reliefs and vibrations, allowing a more uniform germination. The system also allows a quick and agile setting of the desired force, reducing the adjustment time.<\/p><p class=\"ql-align-justify\"><br><\/p><p><strong style=\"color: rgb(236, 102, 8);\">Adaptation to soil and relief conditions<\/strong><\/p><p>With 3 parts articulated to each other and a range of 25 degrees, in addition to the course of the pantographic system of the planting line, they allow the Meridia 200 to have excellent performance in wavy reliefs and improving the quality of planting.<\/p><p><br><\/p>",
+        "es_AR": "<p class=\"ql-align-justify\"><strong style=\"color: rgb(236, 102, 8);\">Precisión en la siembra<\/strong><\/p><p class=\"ql-align-justify\">La tecnología del sistema neumático (vacío) en conjunto con el dosificador de semillas Precision Planting vSet2TM, permite una excelente singularización y CV (coeficiente de variación), resultando en la siembra en la cantidad correcta y en el espaciamiento correcto con impactos positivos en la productividad.<\/p><p class=\"ql-align-justify\"><br><\/p><p class=\"ql-align-justify\"><strong style=\"color: rgb(236, 102, 8);\">Profundidad uniforme<\/strong><\/p><p class=\"ql-align-justify\">Con el nuevo sistema <strong>Jacto <\/strong>de <strong>down force <\/strong>(fuerza de la línea de siembra en el suelo), compuesto por un conjunto de resortes de gas, que permite una fuerza constante a cualquier altura de la línea de siembra. Esto permite una mejor uniformidad en la profundidad de las semillas en el suelo, independientemente de los desniveles de terreno y vibraciones, permitiendo una germinación más uniforme. El sistema también permite un ajuste rápido y ágil de la fuerza deseada, reduciendo el tiempo de ajuste.<\/p><p class=\"ql-align-justify\"><br><\/p><p class=\"ql-align-justify\"><strong style=\"color: rgb(236, 102, 8);\">Adaptación a las condiciones del suelo y del desnivel del terreno.<\/strong><\/p><p>Con 3 cuerpos articulados entre sí y un rango de 25 grados, además del recorrido del sistema pantográfico de la línea de siembra, permiten que la Meridia 200 tenga un excelente desempeño en deniveles de terreno ondulados y mejorando la calidad de siembra.<\/p>",
+        "es_ES": "<p><strong style=\"color: rgb(236, 102, 8);\">Precisión en la siembra<\/strong><\/p><p>La tecnología del sistema neumático (vacío) en conjunto con el dosificador de semillas Precision Planting vSet2TM, permite una excelente singularización y CV (coeficiente de variación), resultando en la siembra en la cantidad correcta y en el espaciamiento correcto con impactos positivos en la productividad.<\/p><p><br><\/p><p><strong style=\"color: rgb(236, 102, 8);\">Profundidad uniforme<\/strong><\/p><p>Con el nuevo sistema <strong>Jacto <\/strong>de <strong>down force <\/strong>(fuerza de la línea de siembra en el suelo), compuesto por un conjunto de resortes de gas, que permite una fuerza constante a cualquier altura de la línea de siembra. Esto permite una mejor uniformidad en la profundidad de las semillas en el suelo, independientemente de los desniveles de terreno y vibraciones, permitiendo una germinación más uniforme. El sistema también permite un ajuste rápido y ágil de la fuerza deseada, reduciendo el tiempo de ajuste.<\/p><p><br><\/p><p><strong style=\"color: rgb(236, 102, 8);\">Adaptación a las condiciones del suelo y del desnivel del terreno.<\/strong><\/p><p>Con 3 cuerpos articulados entre sí y un rango de 25 grados, además del recorrido del sistema pantográfico de la línea de siembra, permiten que la Meridia 200 tenga un excelente desempeño en deniveles de terreno ondulados y mejorando la calidad de siembra.<\/p>",
+        "pt_BR": "<p><strong style=\"color: rgb(236, 102, 8);\">Precisão no plantio<\/strong><\/p><p>A tecnologia do sistema pneumático (a vácuo) em conjunto com o dosador de sementes da Precision Planting vSet2<sup>TM<\/sup>, possibilita uma ótima singulação e CV (coeficiente de variação), resultando um plantio na quantidade correta e no espaçamento correto com impactos positivos na produtividade.<\/p><p><strong style=\"color: rgb(236, 102, 8);\">Profundidade uniforme<\/strong><\/p><p><strong style=\"color: rgb(236, 102, 8);\">﻿<\/strong>Com o novo sistema Jacto de down force (força da linha de sementes no solo), composto por um conjunto de molas a gás, possibilitando uma força constante em qualquer altura da linha de plantio. Isso permite uma melhor uniformidade na profundidade das sementes no solo, independente dos relevos e trepidações, permitindo uma germinação mais uniforme. O sistema também possibilita uma rápida e ágil configuração da força desejada, reduzindo o tempo de regulagem.<\/p><p><strong style=\"color: rgb(236, 102, 8);\">Adaptação as condições de solo e relevo<\/strong><\/p><p>Com 3 corpos articulados entre si e range de 25 graus, além do curso do sistema pantográfico da linha de plantio, permitem que a Meridia 200 tenha ótimo desempenho em relevos ondulados e melhorando a qualidade do plantio.<br><\/p>"
+      },
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "image": {
+        "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_features_2_image_1595959610599_diferencial_02.jpg",
+        "name": "product_features_2_image_1595959610599_diferencial_02.jpg",
+        "size": 2018841,
+        "type": "image\/jpeg"
+      },
+      "title": {
+        "en_GB": "Availability for work",
+        "en_US": "Availability for work",
+        "es_AR": "Disponibilidad para el trabajo",
+        "es_ES": "Disponibilidad para el trabajo",
+        "pt_BR": "Disponibilidade para o trabalho "
+      },
+      "description": {
+        "en_GB": "<p>With a set of solutions to reduce stop time, such as reduced lubrication points, simplified system for changing discs and wheels, high-capacity tank of inputs, make it possible to reduce the time spent on maintenance and supplies, increasing the time for planting .<\/p>",
+        "en_US": "<p>With a set of solutions to reduce stop time, such as reduced lubrication points, simplified system for changing discs and wheels, high-capacity tank of inputs, make it possible to reduce the time spent on maintenance and supplies, increasing the time for planting .<\/p>",
+        "es_AR": "<p>Con un conjunto de soluciones para reducir el tiempo de maquina parada, como puntos de lubricación reducidos, sistema simplificado de cambio de discos y ruedas, reservatórios de insumos de alta capacidad, permiten reducir el tiempo dedicado a mantenimiento y abastecimiento, aumentando el tiempo de siembra.<\/p>",
+        "es_ES": "<p>Con un conjunto de soluciones para reducir el tiempo de maquina parada, como puntos de lubricación reducidos, sistema simplificado de cambio de discos y ruedas, reservatórios de insumos de alta capacidad, permiten reducir el tiempo dedicado a mantenimiento y abastecimiento, aumentando el tiempo de siembra.<\/p>",
+        "pt_BR": "<p>Com um conjunto de soluções para reduzir o tempo de máquina parada, como reduzido pontos de lubrificação, sistema de troca simplificado de discos e rodados, reservatórios de alta capacidade de insumos, possibilitam reduzir o tempo gasto em manutenções a abastecimentos, elevando o tempo para plantio.<\/p>"
+      },
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "image": {
+        "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_features_3_image_1597320546752_linha_de_corte.jpg",
+        "name": "product_features_3_image_1597320546752_linha_de_corte.jpg",
+        "size": 1168500,
+        "type": "image\/jpeg"
+      },
+      "title": {
+        "en_GB": "Straw flow",
+        "en_US": "Straw flow",
+        "es_AR": "Flujo de paja",
+        "es_ES": "Flujo de paja",
+        "pt_BR": "Fluxo de Palha"
+      },
+      "description": {
+        "en_GB": "<p>With the high clearance, we can use cutting discs up to 22”. This allows, together with an optimized cutting angle and the ability to press against the soil, excellent performance in cutting straw. In addition to these characteristics, the narrow structures and unilateral arms allow greater free space for the flow of straw and consequently less stops.<\/p><p><br><\/p>",
+        "en_US": "<p>With the high clearance, we can use cutting discs up to 22”. This allows, together with an optimized cutting angle and the ability to press against the soil, excellent performance in cutting straw. In addition to these characteristics, the narrow structures and unilateral arms allow greater free space for the flow of straw and consequently less stops.<\/p><p><br><\/p>",
+        "es_AR": "<p>Con el vano libre alto, podemos utilizar discos de corte de hasta 22\". Esto permite, junto con un ángulo de corte optimizado y la capacidad de presionar contra el suelo, un excelente rendimiento en el corte de paja. Además de estas características, las estructuras estrechas y los brazos unilaterales permiten un mayor espacio libre para el flujo de paja y en consecuencia menos paradas.<\/p>",
+        "es_ES": "<p>Con el vano libre alto, podemos utilizar discos de corte de hasta 22\". Esto permite, junto con un ángulo de corte optimizado y la capacidad de presionar contra el suelo, un excelente rendimiento en el corte de paja. Además de estas características, las estructuras estrechas y los brazos unilaterales permiten un mayor espacio libre para el flujo de paja y en consecuencia menos paradas.<\/p>",
+        "pt_BR": "<p>Com o elevado vão livre, é possível utilizar discos de corte de até 22”. Isso possibilita, associado a um ângulo de corte otimizado e capacidade de pressão contra o solo, ótimo desempenho no corte de palha. Além dessas características, as estruturas estreitas e braços unilaterais permitem maior espaço livre para o fluxo de palha e consequente menor número de paradas.<\/p>"
+      },
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "image": {
+        "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_features_4_image_1597252529958_monitor.jpg",
+        "name": "product_features_4_image_1597252529958_monitor.jpg",
+        "size": 116368,
+        "type": "image\/jpeg"
+      },
+      "title": {
+        "en_GB": "Planting monitor",
+        "en_US": "Planting monitor",
+        "es_AR": "Monitor de siembra",
+        "es_ES": "Monitor de siembra",
+        "pt_BR": "Monitor de plantio "
+      },
+      "description": {
+        "en_GB": "<p><br><\/p><p><span class=\"ql-cursor\">﻿<\/span>Accurate and clear information can avoid productivity losses. With the Jacto planting monitor, we fully monitor the equipment and all planting lines, with a different and intuitive look, allowing the operator to check errors at the time of planting and make corrections.<\/p>",
+        "en_US": "<p><br><\/p><p>Accurate and clear information can avoid productivity losses. With the Jacto planting monitor, we fully monitor the equipment and all planting lines, with a different and intuitive look, allowing the operator to check errors at the time of planting and make corrections.<\/p>",
+        "es_AR": "<p><br><\/p><p>La información precisa y clara puede evitar pérdidas de productividad. Con el monitor de siembra Jacto monitoreamos completamente el equipo y todas las líneas de siembra, con un aspecto diferente e intuitivo, permitiendo al operador verificar errores en el momento de la siembra y hacer correcciones.<\/p>",
+        "es_ES": "<p><br><\/p><p>La información precisa y clara puede evitar pérdidas de productividad. Con el monitor de siembra Jacto monitoreamos completamente el equipo y todas las líneas de siembra, con un aspecto diferente e intuitivo, permitiendo al operador verificar errores en el momento de la siembra y hacer correcciones.<\/p>",
+        "pt_BR": "<p><br><\/p><p>Informações precisas e claras podem evitar perdas de produtividade. Com o monitor de plantio Jacto realizamos o monitoramento completo do equipamento e de todas as linhas de plantio, com um visual diferenciado e intuitivo, possibilitando o operador verificar os erros no momento do plantio e realizar as correções.&nbsp;<br><\/p>"
+      },
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "specifications": [
+    {
+      "items": [],
+      "title": {
+        "pt_BR": "Plantio |"
+      },
+      "subgroup": [
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Algodão, feijão, milho, soja, sorgo"
+              },
+              "description": []
+            }
+          ],
+          "title": {
+            "pt_BR": "Cultura"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "11 linhas @ 45 cm"
+              },
+              "description": {
+                "pt_BR": "<p>10 linhas @ 50 cm<\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "13 linhas @ 45 cm"
+              },
+              "description": {
+                "pt_BR": "<p>12 linhas @ 50 cm<br><\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "15 linhas @ 45 cm"
+              },
+              "description": {
+                "pt_BR": "<p>14 linhas @ 50 cm<br><\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Número de linhas e espaçamentos"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Chassis rígido para modelo de 11 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>Chassis articulado em 3 corpos para demais modelos<br><\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "4 a 6 eixos individuais com pneu 7.00 - 16"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "Transmissão com duas caixas de engrenagens, com catraca mecânica ligada ao eixo"
+              },
+              "description": []
+            }
+          ],
+          "title": {
+            "pt_BR": "Chassi"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "220 litros \/ linha"
+              },
+              "description": {
+                "pt_BR": "<p>225 kg \/ linha<\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Reservatório de adubo"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "100 litros \/ linha"
+              },
+              "description": {
+                "pt_BR": "<p>75 kg \/ linha<\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Reservatório de sementes"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Discos de até 22\""
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "Discos duplos desencontrados"
+              },
+              "description": []
+            },
+            {
+              "title": {
+                "pt_BR": "Haste fixa"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Linha dianteira (corte\/adubo)"
+          },
+          "subgroup": []
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Sistema pantográfico com discos duplos desencontrados"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "Sistema a vácuo com dosador de sementes Precision Planting e cabos de torção"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "Sistema Jacto de down force constante"
+              },
+              "description": []
+            }
+          ],
+          "title": {
+            "pt_BR": "Linha de plantio"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Hidráulico "
+              },
+              "description": []
+            }
+          ],
+          "title": {
+            "pt_BR": "Marcador de linha"
+          }
+        }
+      ],
+      "markets_ids": [
+        13,
+        12,
+        11,
+        10,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "title": {
+        "en_GB": " Meridia 200 Articulated Chassis withn 3 parts",
+        "en_US": " Meridia 200 Articulated Chassis withn 3 parts",
+        "es_AR": "Meridia 200 Chasis Articulado 3 Cuerpos",
+        "es_ES": "Meridia 200 Chasis Articulado 3 Cuerpos",
+        "pt_BR": "Dimensões e recomendações |"
+      },
+      "subgroup": [
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "11 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>5.400 kg<\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "13 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>7.100 kg<\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "15 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>7.500 kg<\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Peso"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "5,5 metros"
+              },
+              "description": []
+            },
+            {
+              "title": {
+                "pt_BR": "6,5 metros"
+              },
+              "description": []
+            },
+            {
+              "title": {
+                "pt_BR": "7,5 metros"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Largura de trabalho"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "11 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>145 a 165 cv<\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "13 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>170 a 195 cv<\/p>"
+              }
+            },
+            {
+              "title": {
+                "pt_BR": "15 linhas"
+              },
+              "description": {
+                "pt_BR": "<p>195 a 225 cv<\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Potência necessária"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Todos modelos 3,20 m com rápido setup"
+              },
+              "description": {
+                "pt_BR": "<p>Passível de transporte em caminhões<\/p>"
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Largura de transporte"
+          }
+        }
+      ],
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "title": {
+        "en_GB": "Meridia 200 ridid Chassi      \/",
+        "en_US": "Meridia 200 ridid Chassi      \/",
+        "es_AR": "Meridia 200 Chasis Rígido      \/",
+        "es_ES": "Meridia 200 Chasis Rígido      \/",
+        "pt_BR": "Agricultura de precisão"
+      },
+      "subgroup": [
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Monitoramento completo de sementes linha a linha (série)"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Monitoramento de plantio"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Omni 700"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Barra de luzes"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "TerraStar C PRO\/RTX"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Correção de sinais GPS disponíveis"
+          }
+        },
+        {
+          "items": [
+            {
+              "title": {
+                "pt_BR": "Piloto elétrico compativel com Omni 700"
+              },
+              "description": {
+                "pt_BR": ""
+              }
+            }
+          ],
+          "title": {
+            "pt_BR": "Piloto elétrico"
+          }
+        }
+      ],
+      "markets_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "created_at": "2020-07-28T13:53:36.000000Z",
+  "updated_at": "2022-03-09T12:51:47.000000Z",
+  "slug": {
+    "en_GB": "meridia-200-planter",
+    "en_US": "meridia-200-planter",
+    "es_AR": "sembradora-meridia-200",
+    "es_ES": "sembradora-meridia-200",
+    "pt_BR": "plantadeira-meridia-200"
+  },
+  "related_jactoparts_title": {
+    "pt_BR": "Compre Peças e Acessórios"
+  },
+  "related_jactoparts_url": {
+    "pt_BR": "https:\/\/jactoparts.jacto.com.br\/"
+  },
+  "consortium": 1,
+  "prelaunch": 0,
+  "launch": 1,
+  "prelaunch_market_ids": null,
+  "launch_market_ids": [
+    1,
+    16,
+    3
+  ],
+  "show_in_comparator": 0,
+  "preview": 1,
+  "preview_market_ids": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "markets_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "categories_ids": [
+    23
+  ],
+  "scopes_by_market_id": [],
+  "files": [
+    {
+      "id": 454,
+      "scope_id": 247,
+      "scope_type": "App\\Model\\Product",
+      "name": {
+        "pt_BR": "Folheto Meridia 200"
+      },
+      "file": {
+        "en_GB": {
+          "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_file_file_en_GB_1646394031788_jacto-folder-Meridia200-ingles_web_sai.pdf",
+          "name": "product_file_file_en_GB_1646394031788_jacto-folder-Meridia200-ingles_web_sai.pdf",
+          "size": 3975368,
+          "type": "application\/pdf"
+        },
+        "en_US": {
+          "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_file_file_en_US_1646394031788_jacto-folder-Meridia200-ingles_web_sai.pdf",
+          "name": "product_file_file_en_US_1646394031788_jacto-folder-Meridia200-ingles_web_sai.pdf",
+          "size": 3975368,
+          "type": "application\/pdf"
+        },
+        "es_AR": {
+          "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_file_file_es_AR_1646394031788_jacto-folder-Meridia200-espanhol_web_sai.pdf",
+          "name": "product_file_file_es_AR_1646394031788_jacto-folder-Meridia200-espanhol_web_sai.pdf",
+          "size": 3977450,
+          "type": "application\/pdf"
+        },
+        "es_ES": {
+          "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_file_file_es_ES_1646394031788_jacto-folder-Meridia200-espanhol_web_sai.pdf",
+          "name": "product_file_file_es_ES_1646394031788_jacto-folder-Meridia200-espanhol_web_sai.pdf",
+          "size": 3977450,
+          "type": "application\/pdf"
+        },
+        "pt_BR": {
+          "url": "https:\/\/s3.amazonaws.com\/1-jacto.com.br\/files\/product_file_file_pt_BR_1646394031788_jacto-folder-Meridia200-web-sai.pdf",
+          "name": "product_file_file_pt_BR_1646394031788_jacto-folder-Meridia200-web-sai.pdf",
+          "size": 3977810,
+          "type": "application\/pdf"
+        }
+      },
+      "created_at": "2022-02-05T13:27:05.000000Z",
+      "updated_at": "2022-03-04T11:40:31.000000Z"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+GET https://www.jacto.com/api/v1/posts?featured=true&published=true&market=1&limit=300
+Accept: application/json
+
+<> 2022-03-12T130138.200.json
+
+###
+POST https://agromaq.agr.br/wp-json/wp/v2/posts
+Content-Type: application/json
+Authorization: Basic d2VibWluc3RlcjpvYURoIGxaVGYgclZSTyBkQjJUIFA0cHggUnlKYg==
+
+{
+  "title" : "",
+  "slug": "",
+  "published": 1,
+  "featured": 1,
+  "author": 2,
+  "categories": [3],
+  "content": ""
+}
+
+###
+GET https://www.jacto.com/api/v1/products?market=1
+Content-Type: application/json
+
+<> 2022-03-12T101241.200.json
