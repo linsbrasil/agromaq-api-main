@@ -18,24 +18,10 @@ class ComunicaService
 
 	}
 
-	/*public static function enviarDados()
-	{
-		return  Http::withHeaders([
-			'Authorization' => 'Basic bGluc2JyYXNpbDpLVVpzIDNmQmQgZGd6VSBKT29ZIFFSNTEgQUhxbQ=='
-		])->post('https://www.linsbrasil.com.br/wp-json/wp/v2/posts', [
-			'title' => 'Steve',
-			'content' => 'Network Administrator',
-			'slug' => '',
-			'publish' => '',
-
-		]);
-
-	}*/
-
 }
 
 
-
+//Logo abaixo estão os principais parametros a serem preenchidos
 /*{
   "title" : "Mesa de madeira",
   "slug": "mesa-madeira",
