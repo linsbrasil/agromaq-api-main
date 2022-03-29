@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/getdata', [\App\Http\Controllers\GetDataApiController::class, 'index']);
-Route::get('/enviardata', [\App\Http\Controllers\GetDataApiController::class, 'teste']);
+Route::get('/atualizardata/{id}/{title}/{content}/{slug}', [\App\Http\Controllers\GetDataApiController::class, 'atualizar']);
+Route::get('/excluirdata/{id}', [\App\Http\Controllers\GetDataApiController::class, 'excluir']);

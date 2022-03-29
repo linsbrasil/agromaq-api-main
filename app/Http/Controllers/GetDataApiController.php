@@ -25,8 +25,12 @@ class GetDataApiController extends Controller
             echo"Não há dados";
         }
     }
-    public function teste(){
-        $response = ComunicaService::enviarDados();
-        dd($response->json());
+    public function atualizar($id, $title, $content, $slug)
+    {
+        $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
+    }
+    public function excluir($id)
+    {
+        $dados = ComunicaService::excluirDados($id);
     }
 }

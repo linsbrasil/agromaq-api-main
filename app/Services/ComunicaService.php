@@ -17,6 +17,26 @@ class ComunicaService
 		]);
 
 	}
+	public static function atualizarDados($id, $title = null, $content = null, $slug = null)
+	{
+		return  Http::withHeaders([
+			'Authorization' => 'Basic bGluc2JyYXNpbDpLVVpzIDNmQmQgZGd6VSBKT29ZIFFSNTEgQUhxbQ=='
+		])->post('https://www.linsbrasil.com.br/wp-json/wp/v2/posts/'.$id, [
+			'title' => $title,
+			'content' => $content,
+			'slug' => $slug,
+			'publish' => '1',
+			'status' => 'publish'
+		]);
+
+	}
+	public static function excluirDados($id)
+	{
+		return  Http::withHeaders([
+			'Authorization' => 'Basic bGluc2JyYXNpbDpLVVpzIDNmQmQgZGd6VSBKT29ZIFFSNTEgQUhxbQ=='
+		])->delete('https://www.linsbrasil.com.br/wp-json/wp/v2/posts/'.$id);
+
+	}
 
 }
 
@@ -26,6 +46,7 @@ class ComunicaService
   "title" : "Mesa de madeira",
   "slug": "mesa-madeira",
   "published": 1,
+  'status' => 'publish',
   "featured": 1,
   "author": 1,
   "categories": [3],
