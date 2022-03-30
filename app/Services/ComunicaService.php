@@ -6,9 +6,10 @@ class ComunicaService
 {
 	public static function enviarDados($title = null, $content = null, $slug = null)
 	{
+		//https://agromaq.agr.br/wp-json/wp/v2/posts
 		return  Http::withHeaders([
-			'Authorization' => 'Basic bGluc2JyYXNpbDpLVVpzIDNmQmQgZGd6VSBKT29ZIFFSNTEgQUhxbQ=='
-		])->post('https://www.linsbrasil.com.br/wp-json/wp/v2/posts', [
+			'Authorization' => 'Basic d2VibWluc3RlcjppVWlHIHYyTEMgMDhjUyBFYjUzIDl4WnggcHk0eA=='
+		])->post('https://agromaq.webminster.app/wp-json/wp/v2/posts', [
 			'title' => $title,
 			'content' => $content,
 			'slug' => $slug,
