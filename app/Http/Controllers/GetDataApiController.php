@@ -18,7 +18,7 @@ class GetDataApiController extends Controller
             foreach ($response->json() as $rs) {
                 //dd($rs); exit;
                 $rs = (object)$rs;
-                $title = $rs->name['pt_BR'] . " - Jou Quase la 2022";
+                $title = $rs->name['pt_BR'];
 
                 //
                     $result = count($rs->gallery);
@@ -52,7 +52,7 @@ class GetDataApiController extends Controller
                 $slug = $rs->slug['pt_BR'];
                 $dados = ComunicaService::enviarDados($title, $content, $slug);
                 //log($title);
-                exit;
+                
             }
         }else{
             echo"Não há dados";
