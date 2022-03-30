@@ -20,7 +20,7 @@ class GetDataApiController extends Controller
                 $rs = (object)$rs;
                 $title = $rs->name['pt_BR'];
 
-                //
+                //Pega as imagens
                     $result = count($rs->gallery);
                     $fotos = "";
                     for($i=0; $i < $result; $i++){
@@ -29,7 +29,7 @@ class GetDataApiController extends Controller
                         $fotos .= "</div><br>";
                     }
 
-                //
+                //Pega os itens
                          $resultB = count($rs->features);
                          $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
                     $features .= "<ul>";
@@ -41,7 +41,9 @@ class GetDataApiController extends Controller
 
                     }
                     $features .= "</ul>";
-                //
+
+                //Adiciona as imagens e os itens no corpo da descrição (content)
+
                 $content = "<div style='margin: 5px 15px 5px 5px; border: 1px solid #ccc;float: left; width: 280px; height:214px; overflow:hidden;'>";
                 $content .= "<img width='214' height='45' src='".$rs->image['url']."' /></div>";
                 $content .= "<p>".$rs->description['pt_BR']."</p><figure><img width='214' height='200' src='".$rs->image['url']."' alt='' class='wp-image-740' srcset='https://agromaq.agr.br/wp-content/uploads/2022/02/image-1.png 214w, https://agromaq.agr.br/wp-content/uploads/2022/02/image-1-120x25.png 120w' sizes='(max-width: 214px) 100vw, 214px' /></figure>.<br>".$fotos."<br><br><br>".$features;
