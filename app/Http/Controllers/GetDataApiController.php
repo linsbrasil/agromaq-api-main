@@ -21,42 +21,44 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                if(isset($rs->name['pt_BR']) && isset($rs->image['url'])){
+                if($rs->id === 247){
 
-                    /*Definindo os parametros*/
-                    $title = $rs->name['pt_BR']."Sup";
-                    $imagem = $rs->image['url'];
-                    $slug = $rs->slug['pt_BR'];
-                    $description = "";
+                    if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
-                    /** */
+                        /*Definindo os parametros*/
+                        $title = $rs->name['pt_BR'] . "Sup";
+                        $imagem = $rs->image['url'];
+                        $slug = $rs->slug['pt_BR'];
+                        $description = "";
 
-                    if(isset($rs->description['pt_BR'])){
-                        $description = $rs->description['pt_BR'];
-                    }
-                    //Pega os itens
-                    $resultB = count($rs->features);
-                    $features = "";
-                    if($resultB > 0){
-                        $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
-                        $features .= "<ol>";
-                        for($i=0; $i < $resultB; $i++){
-                            $features .= "<li>";
-                            if(isset($rs->features[$i]['title']['pt_BR'] )){
-                                $features .= "<h5 class='texte-uppercase'>".$rs->features[$i]['title']['pt_BR']."</h5>";
-                            }
-                            if(isset($rs->features[$i]['description']['pt_BR'] )){
-                                $features .= "<p>".$rs->features[$i]['description']['pt_BR']."</p>";
-                            }
-                            $features .= "</li>";
+                        /** */
 
+                        if (isset($rs->description['pt_BR'])) {
+                            $description = $rs->description['pt_BR'];
                         }
-                        $features .= "</ol>";
-                    }
+                        //Pega os itens
+                        $resultB = count($rs->features);
+                        $features = "";
+                        if ($resultB > 0) {
+                            $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
+                            $features .= "<ol>";
+                            for ($i = 0; $i < $resultB; $i++) {
+                                $features .= "<li>";
+                                if (isset($rs->features[$i]['title']['pt_BR'])) {
+                                    $features .= "<h5 class='texte-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
+                                }
+                                if (isset($rs->features[$i]['description']['pt_BR'])) {
+                                    $features .= "<p>" . $rs->features[$i]['description']['pt_BR'] . "</p>";
+                                }
+                                $features .= "</li>";
 
-                    //Adiciona os itens no corpo da descrição (content)
+                            }
+                            $features .= "</ol>";
+                        }
 
-                    $content = "<div class='media'>
+                        //Adiciona os itens no corpo da descrição (content)
+
+                        $content = "<div class='media'>
                       <img class='align-self-start mr-3' src='{$imagem}' alt=''>
                       <div class='media-body'>
                         <h5 class='mt-0'>{$title}</h5>
@@ -72,10 +74,12 @@ class GetDataApiController extends Controller
                       </div>
                     </div>";
 
-                    $dados = ComunicaService::enviarDados($title, $content, $slug);
-                }/**Fim do IF */
-                //log($title);
-
+                        $dados = ComunicaService::enviarDados($title, $content, $slug);
+                        Log::notice($slug);
+                    }
+                    /**Fim do IF */
+                    //log($title);
+                }
             }
         } else {
             echo "Não há dados";
