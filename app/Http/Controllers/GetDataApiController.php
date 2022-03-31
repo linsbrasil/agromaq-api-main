@@ -21,44 +21,60 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                if ($rs->id === 247) {
-                    dd($rs);
-                    $rs = (object)$rs;
-                    $title = $rs->name['pt_BR'];
+                if(isset($rs->name['pt_BR']) && isset($rs->image['url'])){
 
-                    //Pega as imagens
-                    $result = count($rs->gallery);
-                    $fotos = "";
-                    for ($i = 0; $i < $result; $i++) {
-                        $fotos .= "<div style='margin: 5px; border: 1px solid #ccc;float: left; width: 214px; height:214px; overflow:hidden;'>";
-                        $fotos .= "<img style = 'width:100%;height:auto;' src='" . $rs->gallery[$i]['url'] . "' />";
-                        $fotos .= "</div><br>";
+                    /*Definindo os parametros*/
+                    $title = $rs->name['pt_BR']."Sup";
+                    $imagem = $rs->image['url'];
+                    $slug = $rs->slug['pt_BR'];
+                    $description = "";
+
+                    /** */
+
+                    if(isset($rs->description['pt_BR'])){
+                        $description = $rs->description['pt_BR'];
                     }
-
                     //Pega os itens
                     $resultB = count($rs->features);
-                    $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
-                    $features .= "<ul>";
-                    for ($i = 0; $i < $resultB; $i++) {
-                        $features .= "<li>";
-                        $features .= "<h5 class='texte-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
-                        $features .= "<p>" . $rs->features[$i]['description']['pt_BR'] . "</p>";
-                        $features .= "</li>";
+                    $features = "";
+                    if($resultB > 0){
+                        $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
+                        $features .= "<ol>";
+                        for($i=0; $i < $resultB; $i++){
+                            $features .= "<li>";
+                            if(isset($rs->features[$i]['title']['pt_BR'] )){
+                                $features .= "<h5 class='texte-uppercase'>".$rs->features[$i]['title']['pt_BR']."</h5>";
+                            }
+                            if(isset($rs->features[$i]['description']['pt_BR'] )){
+                                $features .= "<p>".$rs->features[$i]['description']['pt_BR']."</p>";
+                            }
+                            $features .= "</li>";
 
+                        }
+                        $features .= "</ol>";
                     }
-                    $features .= "</ul>";
 
-                    //Adiciona as imagens e os itens no corpo da descrição (content)
+                    //Adiciona os itens no corpo da descrição (content)
 
-                    $content = "<div style='margin: 5px 15px 5px 5px; border: 1px solid #ccc;float: left; width: 280px; height:214px; overflow:hidden;'>";
-                    $content .= "<img width='214' height='45' src='" . $rs->image['url'] . "' /></div>";
-                    $content .= "<p>" . $rs->description['pt_BR'] . "</p><figure><img width='214' height='200' src='" . $rs->image['url'] . "' alt='' class='wp-image-740' srcset='https://agromaq.agr.br/wp-content/uploads/2022/02/image-1.png 214w, https://agromaq.agr.br/wp-content/uploads/2022/02/image-1-120x25.png 120w' sizes='(max-width: 214px) 100vw, 214px' /></figure>.<br>" . $fotos . "<br><br><br>" . $features;
+                    $content = "<div class='media'>
+                      <img class='align-self-start mr-3' src='{$imagem}' alt=''>
+                      <div class='media-body'>
+                        <h5 class='mt-0'>{$title}</h5>
+                        <p>{$description}</p>
+                      </div>
+                    </div>
 
+                    <div class='container'>
+                      <div class='row'>
+                        <div class='col'>
+                            {$features}
+                        </div>
+                      </div>
+                    </div>";
 
-                    $slug = $rs->slug['pt_BR'];
                     $dados = ComunicaService::enviarDados($title, $content, $slug);
-                    Log::notice($slug);
-                }
+                }/**Fim do IF */
+                //log($title);
 
             }
         } else {
