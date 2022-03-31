@@ -21,7 +21,7 @@ class GetDataApiController extends Controller
                 if(isset($rs->name['pt_BR']) && isset($rs->image['url'])){
 
                     /*Definindo os parametros*/
-                    $title = $rs->name['pt_BR'];
+                    $title = $rs->name['pt_BR']."Sup";
                     $imagem = $rs->image['url'];
                     $slug = $rs->slug['pt_BR'];
                     $description = "";
