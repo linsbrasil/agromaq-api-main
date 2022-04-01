@@ -21,12 +21,13 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
+                //print_r($rs);
                 if($rs->id === 247){
 
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
                         /*Definindo os parametros*/
-                        $title = $rs->name['pt_BR'] . "Sup";
+                        $title = $rs->name['pt_BR'];
                         $imagem = $rs->image['url'];
                         $slug = $rs->slug['pt_BR'];
                         $description = "";
@@ -40,8 +41,8 @@ class GetDataApiController extends Controller
                         $resultB = count($rs->features);
                         $features = "";
                         if ($resultB > 0) {
-                            $features = "<h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
-                            $features .= "<ol>";
+                            $features = "<br><br><h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
+                            $features .= "<ul style='list-style-type: none;'>";
                             for ($i = 0; $i < $resultB; $i++) {
                                 $features .= "<li>";
                                 if (isset($rs->features[$i]['title']['pt_BR'])) {
@@ -53,16 +54,16 @@ class GetDataApiController extends Controller
                                 $features .= "</li>";
 
                             }
-                            $features .= "</ol>";
+                            $features .= "</ul>";
                         }
 
                         //Adiciona os itens no corpo da descrição (content)
 
-                        $content = "<div class='media'>
-                      <img class='align-self-start mr-3' src='{$imagem}' alt=''>
-                      <div class='media-body'>
-                        <h5 class='mt-0'>{$title}</h5>
-                        <p>{$description}</p>
+                        $content = "<div class='card'>
+                      <img class='card-img-top' src='{$imagem}' alt=''>
+                      <div class='card-body'>
+                        <h4 class='card-title' style='color:red;'>{$title}</h4>
+                        <p class='card-text'>{$description}</p>
                       </div>
                     </div>
 
@@ -73,13 +74,25 @@ class GetDataApiController extends Controller
                         </div>
                       </div>
                     </div>";
-
-                        $dados = ComunicaService::enviarDados($title, $content, $slug);
+                        $consulta = Http::get('https://agromaq.webminster.app/wp-json/wp/v2/posts');
+                        $updated = false;
+                        foreach ($consulta->json() as $cons) {
+                            $cons = (object)$cons;
+                            if($cons->title['rendered'] == $title){
+                                $id = $cons->id;
+                                $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
+                                $updated = true;
+                                break;
+                            }
+                        }
+                        if(!$updated){
+                            $dados = ComunicaService::enviarDados($title, $content, $slug);
+                        }
                         Log::notice($slug);
                     }
                     /**Fim do IF */
                     //log($title);
-                }
+                }//FIM DO IF DE TESTE
             }
         } else {
             echo "Não há dados";
