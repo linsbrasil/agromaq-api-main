@@ -18,6 +18,7 @@ class GetDataApiController extends Controller
         //$response = Http::get('https://www.jacto.com/api/v1/products?market=1');
         $response = Http::get(env('WP_API_ENTRY_URL'));
         $consulta = Http::get(env('WP_API_DESTINY_URL'));
+
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
@@ -26,7 +27,7 @@ class GetDataApiController extends Controller
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
                         /*Definindo os parametros*/
-                        $title = $rs->name['pt_BR'];
+                        $title = trim($rs->name['pt_BR']);
                         $imagem = $rs->image['url'];
                         $slug = $rs->slug['pt_BR'];
                         $description = "";
@@ -80,12 +81,14 @@ class GetDataApiController extends Controller
                         
                         foreach ($consulta->json() as $cons) {
                             $cons = (object)$cons;
-                            if($cons->title['rendered'] == $title || $cons->slug == $slug){
+                            if(trim($rs->name['pt_BR']) == trim($cons->title['rendered'])){
                                 $id = $cons->id;
+                                break;
                             }
                         }
                         if(isset($id)){
                            $dados = ComunicaService::atualizarDados($id, $title, $content);
+                           unset($id);
                         }else{
                            $dados = ComunicaService::enviarDados($title, $content, $slug);
                         }
