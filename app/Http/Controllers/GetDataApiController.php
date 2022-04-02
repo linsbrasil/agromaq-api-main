@@ -10,19 +10,18 @@ class GetDataApiController extends Controller
 {
     public function __construct()
     {
-        ini_set('max_execution_time', 180); //3 minutes
+        ini_set('max_execution_time', 500); //Em segundos
     }
 
     public function index()
     {
-        $response = Http::get('https://www.jacto.com/api/v1/products?market=1');
-        //$response = Http::get('https://linsbrasil.com.br/wp-json/wp/v2/posts');
-        //$response = Http::get('https://agromaq.agr.br/wp-json/wp/v2/posts');
+        //$response = Http::get('https://www.jacto.com/api/v1/products?market=1');
+        $response = Http::get(env('WP_API_ENTRY_URL'));
+        $consulta = Http::get(env('WP_API_DESTINY_URL'));
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                //print_r($rs);
-                if($rs->id === 247){
+                //if($rs->id === 247){
 
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
@@ -59,13 +58,17 @@ class GetDataApiController extends Controller
 
                         //Adiciona os itens no corpo da descrição (content)
 
-                        $content = "<div class='card'>
-                      <img class='card-img-top' src='{$imagem}' alt=''>
-                      <div class='card-body'>
-                        <h4 class='card-title' style='color:red;'>{$title}</h4>
-                        <p class='card-text'>{$description}</p>
-                      </div>
-                    </div>
+                        $content = "<div class='media-object stack-for-small'>
+                          <div class='media-object-section'>
+                            <div class='thumbnail'>
+                              <img id='imagem-ads' src= '{$imagem}'>
+                            </div>
+                          </div>
+                          <div class='media-object-section'>
+                            <h3 style='color:red;'>{$title}</h3>
+                            {$description}
+                          </div>
+                        </div>
 
                     <div class='container'>
                       <div class='row'>
@@ -74,25 +77,22 @@ class GetDataApiController extends Controller
                         </div>
                       </div>
                     </div>";
-                        $consulta = Http::get('https://agromaq.webminster.app/wp-json/wp/v2/posts');
-                        $updated = false;
+                        
                         foreach ($consulta->json() as $cons) {
                             $cons = (object)$cons;
-                            if($cons->title['rendered'] == $title){
+                            if($cons->title['rendered'] == $title || $cons->slug == $slug){
                                 $id = $cons->id;
-                                $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
-                                $updated = true;
-                                break;
                             }
                         }
-                        if(!$updated){
-                            $dados = ComunicaService::enviarDados($title, $content, $slug);
+                        if(isset($id)){
+                           $dados = ComunicaService::atualizarDados($id, $title, $content);
+                        }else{
+                           $dados = ComunicaService::enviarDados($title, $content, $slug);
                         }
                         Log::notice($slug);
                     }
                     /**Fim do IF */
-                    //log($title);
-                }//FIM DO IF DE TESTE
+                //}//FIM DO IF DE TESTE
             }
         } else {
             echo "Não há dados";
