@@ -29,7 +29,7 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                if ($rs->id <= 50) {
+                if ($rs->id <= 10) {
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
                         /*Definindo os parametros*/
