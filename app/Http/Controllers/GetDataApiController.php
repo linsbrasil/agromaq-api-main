@@ -18,7 +18,7 @@ class GetDataApiController extends Controller
         //$response = Http::get('https://www.jacto.com/api/v1/products?market=1');
         $response = Http::get(env('WP_API_ENTRY_URL'));
         $consulta = Http::get(env('WP_API_DESTINY_URL'));
-        $array1 = array();
+        $array1 = [];
         foreach ($response->json() as $arr1) {
             $arr1 = (object)$arr1;
             if (isset($arr1->name['pt_BR']) && isset($arr1->image['url'])) {
@@ -29,7 +29,7 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                if($dados->id <= 50){
+                if ($rs->id <= 50) {
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
                         /*Definindo os parametros*/
@@ -38,11 +38,10 @@ class GetDataApiController extends Controller
                         $slug = $rs->slug['pt_BR'];
                         $description = "";
 
-                        /** */
-
                         if (isset($rs->description['pt_BR'])) {
                             $description = $rs->description['pt_BR'];
                         }
+
                         //Pega os itens
                         $resultB = count($rs->features);
                         $features = "";
@@ -89,39 +88,40 @@ class GetDataApiController extends Controller
 
                         foreach ($consulta->json() as $cons) {
                             $cons = (object)$cons;
-                            if(in_array(trim($cons->title['rendered']), $array1)){
+                            if (in_array(trim($cons->title['rendered']), $array1)) {
                                 $id = $cons->id;
                                 break;
                             }
                         }
-                        
-                        if(isset($id)){
-                             $dados = ComunicaService::atualizarDados($id, $title, $content);
-                             Log::notice('atualizarDados');
-                             Log::notice($title);
-                             Log::notice($dados->json());
 
-                         }else{
-                             $dados = ComunicaService::enviarDados($title, $content, $slug);
-                             Log::notice('enviarDados');
-                             Log::notice($title);
-                             Log::notice($dados->json());
-                         }                 
-                 }
-             }
-         }
-     } else {
-        echo "Não há dados";
+                        if (isset($id)) {
+                            $dados = ComunicaService::atualizarDados($id, $title, $content);
+                            Log::notice('atualizarDados');
+                            Log::notice($title);
+                            Log::notice($dados->json());
+
+                        } else {
+                            $dados = ComunicaService::enviarDados($title, $content, $slug);
+                            Log::notice('enviarDados');
+                            Log::notice($title);
+                            Log::notice($dados->json());
+                        }
+                    }
+                }
+            }
+        } else {
+            echo "Não há dados";
+        }
     }
-}
 
-public function atualizar($id, $title, $content, $slug)
-{
-    $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
-}
 
-public function excluir($id)
-{
-    $dados = ComunicaService::excluirDados($id);
-}
+    public function atualizar($id, $title, $content, $slug)
+    {
+        $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
+    }
+
+    public function excluir($id)
+    {
+        $dados = ComunicaService::excluirDados($id);
+    }
 }
