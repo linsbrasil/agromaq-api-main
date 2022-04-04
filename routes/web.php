@@ -23,3 +23,4 @@ Route::get('/excluirdata/{id}', [\App\Http\Controllers\GetDataApiController::cla
 
 
 Route::get('/post-create', [\App\Http\Controllers\GetDataApiController::class, 'store']);
+Route::get('/post-update', [\App\Http\Controllers\GetDataApiController::class, 'update']);
