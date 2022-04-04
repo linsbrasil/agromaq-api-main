@@ -114,6 +114,88 @@ class GetDataApiController extends Controller
         }
     }
 
+    public function store()
+    {
+        $response = Http::get(env('WP_API_ENTRY_URL'));
+
+        foreach ($response->json() as $rs) {
+            $rs = (object)$rs;
+            if ($rs->id <= 10) {
+                /**
+                 * Os dados serão inseridos apenas se houver o título em pt_BR e uma imagem
+                 *
+                 */
+                if (
+                    array_key_exists('pt_BR', $rs->name) ||
+                    array_key_exists('url', $rs->image)
+                ) {
+                    $title = trim($rs->name['pt_BR']);
+                    $imagem = $rs->image['url'];
+                    $slug = $rs->slug['pt_BR'];
+                    $description = "";
+
+                    if (array_key_exists('pt_BR', $rs->description)) {
+                        $description = $rs->description['pt_BR'];
+                    }
+
+                    $quantidadeFeatures = count($rs->features);
+                    if ($quantidadeFeatures > 0) {
+                        $features = "<br><br><h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
+                        $features .= "<ul style='list-style-type: none;'>";
+                        for ($i = 0; $i < $quantidadeFeatures; $i++) {
+                            $features .= "<li>";
+                            if (isset($rs->features[$i]['title']['pt_BR'])) {
+                                $features .= "<h5 class='texte-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
+                            }
+                            if (isset($rs->features[$i]['description']['pt_BR'])) {
+                                $features .= "<p>" . $rs->features[$i]['description']['pt_BR'] . "</p>";
+                            }
+                            $features .= "</li>";
+
+                        }
+                        $features .= "</ul>";
+                    }
+
+
+                    $content = "<div>
+                                <div class='media-object stack-for-small'>
+                                    <div class='media-object-section'>
+
+                                        <div class='thumbnail'>
+                                            <img id='imagem-ads' src= '{$imagem}'>
+                                        </div>
+
+                                    </div>
+
+                                    <div class='media-object-section'>
+                                        <h3 style='color:red;'>{$title}</h3>
+                                        {$description}
+                                    </div>
+                                </div>
+
+                                <div class='container'>
+                                    <div class='row'>
+                                    <div class='col'>
+                                    {$features}
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>";
+
+                    $dados = ComunicaService::enviarDados($title, $content, $slug);
+                    Log::notice('=====================================================================================================');
+                    Log::notice('enviarDados');
+                    Log::notice($rs->id);
+                    Log::notice($slug);
+                    Log::notice($dados->json());
+                    Log::notice('=====================================================================================================');
+                }
+            }
+        }
+
+
+    }
+
 
     public function atualizar($id, $title, $content, $slug)
     {
