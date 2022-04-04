@@ -29,7 +29,7 @@ class GetDataApiController extends Controller
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-
+                if($dados->id <= 50){
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
                         /*Definindo os parametros*/
@@ -65,53 +65,63 @@ class GetDataApiController extends Controller
 
                         //Adiciona os itens no corpo da descrição (content)
 
-                        $content = "<div class='media-object stack-for-small'>
-                          <div class='media-object-section'>
+                        {
+                            $content = "<div class='media-object stack-for-small'>
+                            <div class='media-object-section'>
                             <div class='thumbnail'>
-                              <img id='imagem-ads' src= '{$imagem}'>
+                            <img id='imagem-ads' src= '{$imagem}'>
                             </div>
-                          </div>
-                          <div class='media-object-section'>
+                            </div>
+                            <div class='media-object-section'>
                             <h3 style='color:red;'>{$title}</h3>
                             {$description}
-                          </div>
-                        </div>
+                            </div>
+                            </div>
 
-                    <div class='container'>
-                      <div class='row'>
-                        <div class='col'>
+                            <div class='container'>
+                            <div class='row'>
+                            <div class='col'>
                             {$features}
-                        </div>
-                      </div>
-                    </div>";
+                            </div>
+                            </div>
+                            </div>";
+                        }
+
                         foreach ($consulta->json() as $cons) {
                             $cons = (object)$cons;
                             if(in_array(trim($cons->title['rendered']), $array1)){
                                 $id = $cons->id;
                                 break;
                             }
-
                         }
+                        
                         if(isset($id)){
-                           $dados = ComunicaService::atualizarDados($id, $title, $content);
-                        }else{
-                           $dados = ComunicaService::enviarDados($title, $content, $slug);
-                        }
-                        Log::notice($slug);
-                    }/**Fim do IF */
-            }
-        } else {
-            echo "Não há dados";
-        }
-    }
+                             $dados = ComunicaService::atualizarDados($id, $title, $content);
+                             Log::notice('atualizarDados');
+                             Log::notice($title);
+                             Log::notice($dados->json());
 
-    public function atualizar($id, $title, $content, $slug)
-    {
-        $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
+                         }else{
+                             $dados = ComunicaService::enviarDados($title, $content, $slug);
+                             Log::notice('enviarDados');
+                             Log::notice($title);
+                             Log::notice($dados->json());
+                         }                 
+                 }
+             }
+         }
+     } else {
+        echo "Não há dados";
     }
+}
 
-    public function excluir($id)
-    {
-        $dados = ComunicaService::excluirDados($id);
-    }
+public function atualizar($id, $title, $content, $slug)
+{
+    $dados = ComunicaService::atualizarDados($id, $title, $content, $slug);
+}
+
+public function excluir($id)
+{
+    $dados = ComunicaService::excluirDados($id);
+}
 }
