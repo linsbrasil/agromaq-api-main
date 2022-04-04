@@ -18,11 +18,17 @@ class GetDataApiController extends Controller
         //$response = Http::get('https://www.jacto.com/api/v1/products?market=1');
         $response = Http::get(env('WP_API_ENTRY_URL'));
         $consulta = Http::get(env('WP_API_DESTINY_URL'));
+        $array1 = array();
+        foreach ($response->json() as $arr1) {
+            $arr1 = (object)$arr1;
+            if (isset($arr1->name['pt_BR']) && isset($arr1->image['url'])) {
+                array_push($array1, trim($arr1->name['pt_BR']));
+            }
+        }
 
         if ($response) {
             foreach ($response->json() as $rs) {
                 $rs = (object)$rs;
-                //if($rs->id === 247){
 
                     if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) {
 
@@ -78,24 +84,21 @@ class GetDataApiController extends Controller
                         </div>
                       </div>
                     </div>";
-                        
                         foreach ($consulta->json() as $cons) {
                             $cons = (object)$cons;
-                            if(trim($rs->name['pt_BR']) == trim($cons->title['rendered'])){
+                            if(in_array(trim($cons->title['rendered']), $array1)){
                                 $id = $cons->id;
                                 break;
                             }
+
                         }
                         if(isset($id)){
                            $dados = ComunicaService::atualizarDados($id, $title, $content);
-                           unset($id);
                         }else{
                            $dados = ComunicaService::enviarDados($title, $content, $slug);
                         }
                         Log::notice($slug);
-                    }
-                    /**Fim do IF */
-                //}//FIM DO IF DE TESTE
+                    }/**Fim do IF */
             }
         } else {
             echo "Não há dados";
