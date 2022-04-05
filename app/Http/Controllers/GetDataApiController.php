@@ -122,8 +122,7 @@ class GetDataApiController extends Controller
         $compare = array();
         foreach ($posts as $post) 
         {
-            echo $post->title['rendered'];die();
-            array_push($compare, $post['title']['rendered']);
+            array_push($compare, $post->title);
         }
         foreach ($response->json() as $rs) 
         {
@@ -225,18 +224,28 @@ public function update()
 {
     $response = Http::get(env('WP_API_ENTRY_URL'));
     $posts = PostController::index();
+    $compare = array();
+        foreach ($posts as $post) 
+        {
+            array_push($compare, $post->title);
+        }
     foreach ($response->json() as $rs) 
     {
         $rs = (object)$rs;
         if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) 
         {
-            foreach ($posts as $post) 
-            {
-                if($rs->name['pt-BR'] === $post['title'])
+                if(in_array(trim($rs->name['pt_BR']), $compare))
                 {
                     try
                     {
-                        $idpost = $post->idpost;
+                        foreach ($posts as $post) 
+                        {
+                            if(trim($rs->name['pt_BR']) == $post->title){
+                                $idpost = $post->idpost;
+                                break;
+                            }
+                        }
+                        
                         if ($rs->id <= 10) 
                         {
                             /**
@@ -301,6 +310,11 @@ public function update()
                             </div>
                             </div>";
 
+                            echo "ID #". $idpost."<br>";
+                            echo "Titulo: "."$title"."<br>";
+                            echo "Descrição: ". $content;
+                            die();
+
                             $dados = ComunicaService::atualizarDados($idpost, $title, $content);
                             Log::notice('=====================================================================================================');
                             Log::notice('atualizarDados');
@@ -314,7 +328,7 @@ public function update()
                         echo 'Exceção capturada: ',  $e->getMessage(), "\n";
                     } 
                 }
-            }
+            
         }
     }
 } 
