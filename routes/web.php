@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getdata', [\App\Http\Controllers\GetDataApiController::class, 'index']);
-Route::get('/atualizardata/{id}/{title}/{content}/{slug}', [\App\Http\Controllers\GetDataApiController::class, 'atualizar']);
-Route::get('/excluirdata/{id}', [\App\Http\Controllers\GetDataApiController::class, 'excluir']);
+//Route::get('/getdata', [\App\Http\Controllers\GetDataApiController::class, 'index']);
+//Route::get('/excluirdata/{id}', [\App\Http\Controllers\GetDataApiController::class, 'excluir']);
 
 
 Route::get('/post-create', [\App\Http\Controllers\GetDataApiController::class, 'store']);
