@@ -1,4 +1,4 @@
-GET https://www.jacto.com/api/v1/posts?featured=true&published=true&market=1&limit=300
+GET https://agromaq.agr.br/wp-json/wp/v2/posts
 Accept: application/json
 
 <> 2022-03-12T130138.200.json
@@ -6,10 +6,10 @@ Accept: application/json
 ###
 POST https://agromaq.agr.br/wp-json/wp/v2/posts
 Content-Type: application/json
-Authorization: Basic d2VibWluc3RlcjpvYURoIGxaVGYgclZSTyBkQjJUIFA0cHggUnlKYg==
+Authorization: Basic V2VibWluc3RlcjpaemRxIENYbWwgTk1QViBNZTRPIEdFdmQgSVJyOQ==
 
 {
-  "title" : "",
+  "title" : "new title",
   "slug": "",
   "published": 1,
   "featured": 1,
