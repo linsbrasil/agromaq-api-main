@@ -11,7 +11,7 @@ class GetDataApiController extends Controller
 {
     public function __construct()
     {
-        ini_set('max_execution_time', 500); //Em segundos
+        ini_set('max_execution_time', 0); //Em segundos
     }
 
    
@@ -20,7 +20,7 @@ class GetDataApiController extends Controller
     {
         $response = Http::get(env('WP_API_ENTRY_URL'));
         $posts = PostController::index();
-        $compare = array();
+        $compare = [];
         foreach ($posts as $post) 
         {
             array_push($compare, $post->title);
@@ -35,7 +35,7 @@ class GetDataApiController extends Controller
                     try
                     {
 
-                        if ($rs->id <= 50) 
+                        if ($rs->id === 247) 
                         {
                         /**
                          * Os dados serão inseridos apenas se houver o título em pt_BR
@@ -50,6 +50,7 @@ class GetDataApiController extends Controller
                         {
                             $description = $rs->description['pt_BR'];
                         }
+                        $features = "";
 
                         $quantidadeFeatures = count($rs->features);
                         if ($quantidadeFeatures > 0) 
@@ -62,7 +63,7 @@ class GetDataApiController extends Controller
                                 $features .= "<li>";
                                 if (isset($rs->features[$i]['title']['pt_BR'])) 
                                 {
-                                    $features .= "<h5 class='texte-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
+                                    $features .= "<h5 class='text-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
                                 }
                                 if (isset($rs->features[$i]['description']['pt_BR'])) 
                                 {
@@ -74,6 +75,68 @@ class GetDataApiController extends Controller
                             $features .= "</ul>";
                         }
 
+                        $specifications = "";
+                        $quantidadeSpecifications = count($rs->specifications);
+                        if ($quantidadeSpecifications > 0) 
+                        {
+                            $specifications .= "<br><br><h3 class='text-center' style='color:red;'>ESPECIFICAÇÕES TÉCNICAS</H3><br>";
+                            for ($i = 0; $i < $quantidadeSpecifications; $i++) 
+                            {
+                                if(isset($rs->specifications[$i]['subgroup']))
+                                {
+                                    $qtdeSubgroup = count($rs->specifications[$i]['subgroup']);
+                                }else{
+                                    $qtdeSubgroup = 0;
+                                }
+                                
+                                if (isset($rs->specifications[$i]['title']['pt_BR']) && $qtdeSubgroup > 0) 
+                                { 
+                                    $table_title = $rs->specifications[$i]['title']['pt_BR'];
+                                    $table_title = str_replace("|", "", $table_title);
+                                    $specifications .= "<h5 class='text-uppercase text-center' style='color:green;'>" . $table_title . "</h5>";
+                                    //Abre tabela
+                                    $specifications .= "<div class='table-responsive' style ='margin-bottom:25px;'><table class='table'><tbody>";
+                                    for ($j = 0; $j < $qtdeSubgroup; $j++) 
+                                    {
+                                        //
+                                        if(isset($rs->specifications[$i]['subgroup'][$j]['title']['pt_BR']))
+                                        {
+                                            $sptitlefirst = $rs->specifications[$i]['subgroup'][$j]['title']['pt_BR'];
+                                            
+                                            $specifications .= "<tr>";
+                                            $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
+                                            $specifications .= "
+                                                        <td width='70%' style='background-color:#ffffff;'>
+                                                        <ul style='list-style-type: none;'>";
+                                            $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
+                                            for ($t = 0; $t < $qtdeSubItems; $t++) 
+                                            {
+                                                if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                {
+                                                    $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
+                                                    $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
+                                                    if(empty($spdesc)){
+                                                        $spdesc = "";
+                                                    }
+                                                    $specifications .= "
+                                                        <li style='display: inline-block;'>
+                                                        <ul style='list-style-type: none;'>
+                                                        <li>{$sptitle}</li>
+                                                        <li>{$spdesc}</li>
+                                                        </ul>
+                                                        </li>
+                                                        ";
+                                                }
+                                            }
+                                            $specifications .= "</ul></td></tr>";
+                                        }
+                                    }
+                                    $specifications .= "</tbody></table></div>";
+                                    //Fecha tabela
+                                }
+                            }
+                            /**FIM DO FOREACH */
+                        }
 
                         $content = "<div>
                         <div class='media-object stack-for-small'>
@@ -95,6 +158,15 @@ class GetDataApiController extends Controller
                         <div class='row'>
                         <div class='col'>
                         {$features}
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class='container'>
+                        <div class='row'>
+                        <div class='col'>
+                        {$specifications}
                         </div>
                         </div>
                         </div>
@@ -125,7 +197,7 @@ class GetDataApiController extends Controller
     {
         $response = Http::get(env('WP_API_ENTRY_URL'));
         $posts = PostController::index();
-        $compare = array();
+        $compare = [];
             foreach ($posts as $post) 
             {
                 array_push($compare, $post->title);
@@ -147,8 +219,7 @@ class GetDataApiController extends Controller
                                 }
                             }
                             
-                            if ($rs->id <= 10) 
-                            {
+                        
                                 /**
                                  * Os dados serão inseridos apenas se houver o título em pt_BR
                                  *
@@ -164,7 +235,7 @@ class GetDataApiController extends Controller
                                 }
 
                                 $quantidadeFeatures = count($rs->features);
-
+                                $fetures = "";
                                 if ($quantidadeFeatures > 0) 
                                 {
                                     $features = "<br><br><h3 style='color:orange;'>DIFERENCIAIS</H3><br>";
@@ -173,7 +244,7 @@ class GetDataApiController extends Controller
                                         $features .= "<li>";
                                         if (isset($rs->features[$i]['title']['pt_BR'])) 
                                         {
-                                            $features .= "<h5 class='texte-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
+                                            $features .= "<h5 class='text-uppercase'>" . $rs->features[$i]['title']['pt_BR'] . "</h5>";
                                         }
                                         if (isset($rs->features[$i]['description']['pt_BR'])) 
                                         {
@@ -185,6 +256,68 @@ class GetDataApiController extends Controller
                                     $features .= "</ul>";
                                 }
 
+                                $specifications = "";
+                                $quantidadeSpecifications = count($rs->specifications);
+                                if ($quantidadeSpecifications > 0) 
+                                {
+                                    $specifications .= "<br><br><h3 class='text-center' style='color:red;'>ESPECIFICAÇÕES TÉCNICAS</H3><br>";
+                                    for ($i = 0; $i < $quantidadeSpecifications; $i++) 
+                                    {
+                                        if(isset($rs->specifications[$i]['subgroup']))
+                                        {
+                                            $qtdeSubgroup = count($rs->specifications[$i]['subgroup']);
+                                        }else{
+                                            $qtdeSubgroup = 0;
+                                        }
+                                        
+                                        if (isset($rs->specifications[$i]['title']['pt_BR']) && $qtdeSubgroup > 0) 
+                                        { 
+                                            $table_title = $rs->specifications[$i]['title']['pt_BR'];
+                                            $table_title = str_replace("|", "", $table_title);
+                                            $specifications .= "<h5 class='text-uppercase text-center' style='color:green;margin-top:25px;'>" . $table_title . "</h5>";
+                                            //Abre tabela
+                                            $specifications .= "<div class='table-responsive' style ='margin-bottom:25px;'><table class='table'><tbody>";
+                                            for ($j = 0; $j < $qtdeSubgroup; $j++) 
+                                            {
+                                                //
+                                                if(isset($rs->specifications[$i]['subgroup'][$j]['title']['pt_BR']))
+                                                {
+                                                    $sptitlefirst = $rs->specifications[$i]['subgroup'][$j]['title']['pt_BR'];
+                                                    
+                                                    $specifications .= "<tr>";
+                                                    $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
+                                                    $specifications .= "
+                                                                <td width='70%' style='background-color:#ffffff;'>
+                                                                <ul style='list-style-type: none;'>";
+                                                    $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
+                                                    for ($t = 0; $t < $qtdeSubItems; $t++) 
+                                                    {
+                                                        if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                        {
+                                                            $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
+                                                            $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
+                                                            if(empty($spdesc)){
+                                                                $spdesc = "";
+                                                            }
+                                                            $specifications .= "
+                                                                <li style='display: inline-block;'>
+                                                                <ul style='list-style-type: none;'>
+                                                                <li>{$sptitle}</li>
+                                                                <li>{$spdesc}</li>
+                                                                </ul>
+                                                                </li>
+                                                                ";
+                                                        }
+                                                    }
+                                                    $specifications .= "</ul></td></tr>";
+                                                }
+                                            }
+                                            $specifications .= "</tbody></table></div>";
+                                            //Fecha tabela
+                                        }
+                                    }
+                                    /**FIM DO FOREACH */
+                                }
 
                                 $content = "<div>
                                 <div class='media-object stack-for-small'>
@@ -209,13 +342,16 @@ class GetDataApiController extends Controller
                                 </div>
                                 </div>
                                 </div>
+                                </div>
+
+                                <div class='container'>
+                                <div class='row'>
+                                <div class='col'>
+                                {$specifications}
+                                </div>
+                                </div>
+                                </div>
                                 </div>";
-
-                                echo "ID #". $idpost."<br>";
-                                echo "Titulo: "."$title"."<br>";
-                                echo "Descrição: ". $content;
-                                die();
-
                                 $dados = ComunicaService::atualizarDados($idpost, $title, $content);
                                 Log::notice('=====================================================================================================');
                                 Log::notice('atualizarDados');
@@ -223,8 +359,7 @@ class GetDataApiController extends Controller
                                 Log::notice($slug);
                                 Log::notice($dados->json());
                                 Log::notice('=====================================================================================================');
-                                
-                            }
+                            
                         } catch (Exception $e) {
                             echo 'Exceção capturada: ',  $e->getMessage(), "\n";
                         } 
