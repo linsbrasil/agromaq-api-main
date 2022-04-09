@@ -18,6 +18,8 @@ class ComunicaService
             'publish' => '1',
             'status' => 'publish',
             'author' => 2,
+            'featured_media'=> 1,
+            'categories'=> [10],
         ]);
 
     }
