@@ -13,11 +13,12 @@ class PostController extends Controller
         $posts = PostModel::all();
         return $posts;
     }
+
     public static function store($idpost, $title)
     {
         $post = PostModel::create([
             'idpost' => $idpost,
-            'title' => $title
+            'title' => $title,
         ]);
         return $post;
     }
