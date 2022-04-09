@@ -102,33 +102,35 @@ class GetDataApiController extends Controller
                                         if(isset($rs->specifications[$i]['subgroup'][$j]['title']['pt_BR']))
                                         {
                                             $sptitlefirst = $rs->specifications[$i]['subgroup'][$j]['title']['pt_BR'];
-                                            
-                                            $specifications .= "<tr>";
-                                            $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
-                                            $specifications .= "
-                                            <td width='70%' style='background-color:#ffffff;'>
-                                            <ul style='list-style-type: none;text-align: justify-all;'>";
-                                            $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
-                                            for ($t = 0; $t < $qtdeSubItems; $t++) 
+                                            if(!empty($sptitlefirst))
                                             {
-                                                if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                $specifications .= "<tr>";
+                                                $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
+                                                $specifications .= "
+                                                <td width='70%' style='background-color:#ffffff;'>
+                                                <ul style='list-style-type: none;text-align: justify-all;'>";
+                                                $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
+                                                for ($t = 0; $t < $qtdeSubItems; $t++) 
                                                 {
-                                                    $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
-                                                    $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
-                                                    if(empty($spdesc)){
-                                                        $spdesc = "";
+                                                    if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                    {
+                                                        $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
+                                                        $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
+                                                        if(empty($spdesc)){
+                                                            $spdesc = "";
+                                                        }
+                                                        $specifications .= "
+                                                        <li style='display: inline-block;'>
+                                                        <ul style='list-style-type: none;'>
+                                                        <li>{$sptitle}</li>
+                                                        <li>{$spdesc}</li>
+                                                        </ul>
+                                                        </li>
+                                                        ";
                                                     }
-                                                    $specifications .= "
-                                                    <li style='display: inline-block;'>
-                                                    <ul style='list-style-type: none;'>
-                                                    <li>{$sptitle}</li>
-                                                    <li>{$spdesc}</li>
-                                                    </ul>
-                                                    </li>
-                                                    ";
                                                 }
+                                                $specifications .= "</ul></td></tr>";
                                             }
-                                            $specifications .= "</ul></td></tr>";
                                         }
                                     }
                                     $specifications .= "</tbody></table></div>";
@@ -283,33 +285,35 @@ public function update()
                                                 if(isset($rs->specifications[$i]['subgroup'][$j]['title']['pt_BR']))
                                                 {
                                                     $sptitlefirst = $rs->specifications[$i]['subgroup'][$j]['title']['pt_BR'];
-                                                    
-                                                    $specifications .= "<tr>";
-                                                    $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
-                                                    $specifications .= "
-                                                    <td width='70%' style='background-color:#ffffff;'>
-                                                    <ul style='list-style-type: none;'>";
-                                                    $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
-                                                    for ($t = 0; $t < $qtdeSubItems; $t++) 
+                                                    if(!empty($sptitlefirst))
                                                     {
-                                                        if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                        $specifications .= "<tr>";
+                                                        $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
+                                                        $specifications .= "
+                                                        <td width='70%' style='background-color:#ffffff;'>
+                                                        <ul style='list-style-type: none;'>";
+                                                        $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
+                                                        for ($t = 0; $t < $qtdeSubItems; $t++) 
                                                         {
-                                                            $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
-                                                            $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
-                                                            if(empty($spdesc)){
-                                                                $spdesc = "";
+                                                            if (isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR']) && isset($rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'])) 
+                                                            {
+                                                                $sptitle = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['title']['pt_BR'];
+                                                                $spdesc = $rs->specifications[$i]['subgroup'][$j]['items'][$t]['description']['pt_BR'];
+                                                                if(empty($spdesc)){
+                                                                    $spdesc = "";
+                                                                }
+                                                                $specifications .= "
+                                                                <li style='display: inline-block;'>
+                                                                <ul style='list-style-type: none;'>
+                                                                <li>{$sptitle}</li>
+                                                                <li>{$spdesc}</li>
+                                                                </ul>
+                                                                </li>
+                                                                ";
                                                             }
-                                                            $specifications .= "
-                                                            <li style='display: inline-block;'>
-                                                            <ul style='list-style-type: none;'>
-                                                            <li>{$sptitle}</li>
-                                                            <li>{$spdesc}</li>
-                                                            </ul>
-                                                            </li>
-                                                            ";
                                                         }
+                                                        $specifications .= "</ul></td></tr>";
                                                     }
-                                                    $specifications .= "</ul></td></tr>";
                                                 }
                                             }
                                             $specifications .= "</tbody></table></div>";
