@@ -14,6 +14,14 @@ class GetDataApiController extends Controller
         ini_set('max_execution_time', 0); //Em segundos
     }
 
+    /**
+     * @return void
+     *
+     * @todo Extrair montagem do código html em um Service
+     * @todo Desenvolver uma interface para o usuário montar o layout
+     * @todo Implementar cumprimento de inserção, 10/30/50 posts por vez
+     *
+     */
     public function store()
     {
         $response = Http::get(env('WP_API_ENTRY_URL'));
