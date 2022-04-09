@@ -14,7 +14,7 @@ class GetDataApiController extends Controller
         ini_set('max_execution_time', 0); //Em segundos
     }
 
-   
+    
 
     public function store()
     {
@@ -106,8 +106,8 @@ class GetDataApiController extends Controller
                                             $specifications .= "<tr>";
                                             $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
                                             $specifications .= "
-                                                        <td width='70%' style='background-color:#ffffff;'>
-                                                        <ul style='list-style-type: none;'>";
+                                            <td width='70%' style='background-color:#ffffff;'>
+                                            <ul style='list-style-type: none;text-align: justify-all;'>";
                                             $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
                                             for ($t = 0; $t < $qtdeSubItems; $t++) 
                                             {
@@ -119,13 +119,13 @@ class GetDataApiController extends Controller
                                                         $spdesc = "";
                                                     }
                                                     $specifications .= "
-                                                        <li style='display: inline-block;'>
-                                                        <ul style='list-style-type: none;'>
-                                                        <li>{$sptitle}</li>
-                                                        <li>{$spdesc}</li>
-                                                        </ul>
-                                                        </li>
-                                                        ";
+                                                    <li style='display: inline-block;'>
+                                                    <ul style='list-style-type: none;'>
+                                                    <li>{$sptitle}</li>
+                                                    <li>{$spdesc}</li>
+                                                    </ul>
+                                                    </li>
+                                                    ";
                                                 }
                                             }
                                             $specifications .= "</ul></td></tr>";
@@ -193,33 +193,33 @@ class GetDataApiController extends Controller
     }
 }
 
-    public function update()
+public function update()
+{
+    $response = Http::get(env('WP_API_ENTRY_URL'));
+    $posts = PostController::index();
+    $compare = [];
+    foreach ($posts as $post) 
     {
-        $response = Http::get(env('WP_API_ENTRY_URL'));
-        $posts = PostController::index();
-        $compare = [];
-            foreach ($posts as $post) 
-            {
-                array_push($compare, $post->title);
-            }
-        foreach ($response->json() as $rs) 
+        array_push($compare, $post->title);
+    }
+    foreach ($response->json() as $rs) 
+    {
+        $rs = (object)$rs;
+        if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) 
         {
-            $rs = (object)$rs;
-            if (isset($rs->name['pt_BR']) && isset($rs->image['url'])) 
+            if(in_array(trim($rs->name['pt_BR']), $compare))
             {
-                    if(in_array(trim($rs->name['pt_BR']), $compare))
+                try
+                {
+                    foreach ($posts as $post) 
                     {
-                        try
-                        {
-                            foreach ($posts as $post) 
-                            {
-                                if(trim($rs->name['pt_BR']) == $post->title){
-                                    $idpost = $post->idpost;
-                                    break;
-                                }
-                            }
-                            
-                        
+                        if(trim($rs->name['pt_BR']) == $post->title){
+                            $idpost = $post->idpost;
+                            break;
+                        }
+                    }
+                    
+                    
                                 /**
                                  * Os dados serão inseridos apenas se houver o título em pt_BR
                                  *
@@ -287,8 +287,8 @@ class GetDataApiController extends Controller
                                                     $specifications .= "<tr>";
                                                     $specifications .= "<th width='30%' scope='row' style='background-color:#ffffff;'>{$sptitlefirst}</th>";
                                                     $specifications .= "
-                                                                <td width='70%' style='background-color:#ffffff;'>
-                                                                <ul style='list-style-type: none;'>";
+                                                    <td width='70%' style='background-color:#ffffff;'>
+                                                    <ul style='list-style-type: none;'>";
                                                     $qtdeSubItems = count($rs->specifications[$i]['subgroup'][$j]['items']);
                                                     for ($t = 0; $t < $qtdeSubItems; $t++) 
                                                     {
@@ -300,13 +300,13 @@ class GetDataApiController extends Controller
                                                                 $spdesc = "";
                                                             }
                                                             $specifications .= "
-                                                                <li style='display: inline-block;'>
-                                                                <ul style='list-style-type: none;'>
-                                                                <li>{$sptitle}</li>
-                                                                <li>{$spdesc}</li>
-                                                                </ul>
-                                                                </li>
-                                                                ";
+                                                            <li style='display: inline-block;'>
+                                                            <ul style='list-style-type: none;'>
+                                                            <li>{$sptitle}</li>
+                                                            <li>{$spdesc}</li>
+                                                            </ul>
+                                                            </li>
+                                                            ";
                                                         }
                                                     }
                                                     $specifications .= "</ul></td></tr>";
@@ -359,13 +359,13 @@ class GetDataApiController extends Controller
                                 Log::notice($slug);
                                 Log::notice($dados->json());
                                 Log::notice('=====================================================================================================');
-                            
-                        } catch (Exception $e) {
-                            echo 'Exceção capturada: ',  $e->getMessage(), "\n";
-                        } 
+                                
+                            } catch (Exception $e) {
+                                echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+                            } 
+                        }
+                        
                     }
-                
-            }
+                }
+            } 
         }
-    } 
-}
