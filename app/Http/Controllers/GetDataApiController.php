@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ComunicaService;
+use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\PostController;
@@ -30,7 +31,7 @@ class GetDataApiController extends Controller
 
         /**Preechendo o array somente com os titulos */
         foreach ($posts as $post) {
-            array_push($compare, $post->title);
+            $compare[] = $post->title;
         }
         foreach ($response->json() as $rs) {
             $rs = (object)$rs;
@@ -41,7 +42,12 @@ class GetDataApiController extends Controller
                 if (!in_array(trim($rs->name['pt_BR']), $compare)) {
                     try {
 
-                        if ($rs->id === 247) {
+                        // 50
+                        // 51-100
+                        // 101-150
+                        // 151-200
+                        // 251-300
+                        if ($rs->id > 250) {
                             /**
                              * Os dados serão inseridos apenas se houver o título em pt_BR
                              *
@@ -135,42 +141,43 @@ class GetDataApiController extends Controller
                             }
 
                             $content = "<div>
-                        <div class='media-object stack-for-small'>
-                        <div class='media-object-section'>
+                                            <div class='media-object stack-for-small'>
+                                            <div class='media-object-section'>
 
-                        <div class='thumbnail'>
-                        <img id='imagem-ads' src= '{$imagem}'>
-                        </div>
+                                            <div class='thumbnail'>
+                                            <img id='imagem-ads' src= '{$imagem}'>
+                                            </div>
 
-                        </div>
+                                            </div>
 
-                        <div class='media-object-section'>
-                        <h3 style='color:red;'>{$title}</h3>
-                        {$description}
-                        </div>
-                        </div>
+                                            <div class='media-object-section'>
+                                            <h3 style='color:red;'>{$title}</h3>
+                                            {$description}
+                                            </div>
+                                            </div>
 
-                        <div class='container'>
-                        <div class='row'>
-                        <div class='col'>
-                        {$features}
-                        </div>
-                        </div>
-                        </div>
-                        </div>
+                                            <div class='container'>
+                                            <div class='row'>
+                                            <div class='col'>
+                                            {$features}
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
 
-                        <div class='container'>
-                        <div class='row'>
-                        <div class='col'>
-                        {$specifications}
-                        </div>
-                        </div>
-                        </div>
-                        </div>";
+                                            <div class='container'>
+                                            <div class='row'>
+                                            <div class='col'>
+                                            {$specifications}
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>";
 
                             /**Fazendo a inserção no WP da Agromaq */
                             $dados = ComunicaService::enviarDados($title, $content, $slug);
                             $obj = $dados->json();
+                            $response = (object)$dados->json();
                             $idpost = $obj['id'];
                             $post_title = $obj['title']['rendered'];
 
@@ -178,12 +185,13 @@ class GetDataApiController extends Controller
                             PostController::store($idpost, $post_title);
 
                             /**Testes de logs */
-                            Log::notice('=====================================================================================================');
+                            Log::notice('===================================================');
                             Log::notice('enviarDados');
-                            Log::notice($rs->id);
+                            Log::notice('jacto_id: ' . $rs->id);
                             Log::notice($slug);
-                            Log::notice($dados->json());
-                            Log::notice('=====================================================================================================');
+                            Log::notice('wp_id: ' . $response->id);
+                            Log::notice($response->link);
+                            Log::notice('===================================================');
                             /**Fim */
                         }
                     } catch (Exception $e) {
@@ -202,7 +210,7 @@ class GetDataApiController extends Controller
 
         /**Preechendo o array somente com os titulos */
         foreach ($posts as $post) {
-            array_push($compare, $post->title);
+            $compare[] = $post->title;
         }
         foreach ($response->json() as $rs) {
             $rs = (object)$rs;
@@ -348,14 +356,16 @@ class GetDataApiController extends Controller
 
                         /**Fazendo a atualização  do Post no WP da Agromaq */
                         $dados = ComunicaService::atualizarDados($idpost, $title, $content);
+                        $response = (object)$dados->json();
 
                         /**Testes de logs */
-                        Log::notice('=====================================================================================================');
-                        Log::notice('atualizarDados');
-                        Log::notice($rs->id);
+                        Log::notice('===================================================');
+                        Log::notice('enviarDados');
+                        Log::notice('jacto_id: ' . $rs->id);
                         Log::notice($slug);
-                        Log::notice($dados->json());
-                        Log::notice('=====================================================================================================');
+                        Log::notice('wp_id: ' . $response->id);
+                        Log::notice($response->link);
+                        Log::notice('===================================================');
                         /**Fim */
                     } catch (Exception $e) {
                         echo 'Exceção capturada: ', $e->getMessage(), "\n";
